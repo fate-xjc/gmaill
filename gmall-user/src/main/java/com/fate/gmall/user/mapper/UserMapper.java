@@ -1,10 +1,11 @@
 package com.fate.gmall.user.mapper;
 
 import com.fate.gmall.user.bean.UmsMember;
+import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
-public interface UserMapper {
+public interface UserMapper extends Mapper<UmsMember> {
 
     List<UmsMember> selectAllUser();
 }
