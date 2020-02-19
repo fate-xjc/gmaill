@@ -1,10 +1,10 @@
 package com.fate.gmall.user.service.impl;
 
-import com.fate.gmall.user.bean.UmsMember;
-import com.fate.gmall.user.bean.UmsMemberReceiveAddress;
+import com.fate.gmall.bean.UmsMember;
+import com.fate.gmall.bean.UmsMemberReceiveAddress;
+import com.fate.gmall.service.UserService;
 import com.fate.gmall.user.mapper.UmsMemberReceiveAddressMapper;
 import com.fate.gmall.user.mapper.UserMapper;
-import com.fate.gmall.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,13 +16,14 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
     UmsMemberReceiveAddressMapper umsMemberReceiveAddressMapper;
 
     @Override
     public List<UmsMember> getAllUser() {
 
-        List<UmsMember> umsMemberList=userMapper.selectAll();// userMapper.selectAllUser();
-        return umsMemberList;
+        List<UmsMember> umsMembers=userMapper.selectAll();// userMapper.selectAllUser();
+        return umsMembers;
     }
 
     @Override
