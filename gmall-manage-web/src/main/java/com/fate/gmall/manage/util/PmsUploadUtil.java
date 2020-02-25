@@ -1,4 +1,4 @@
-package com.fate.gmall.manager.util;
+package com.fate.gmall.manage.util;
 
 import org.csource.fastdfs.ClientGlobal;
 import org.csource.fastdfs.StorageClient;

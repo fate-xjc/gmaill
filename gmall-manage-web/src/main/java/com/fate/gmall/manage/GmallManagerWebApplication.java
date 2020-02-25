@@ -1,4 +1,4 @@
-package com.fate.gmall.manager;
+package com.fate.gmall.manage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

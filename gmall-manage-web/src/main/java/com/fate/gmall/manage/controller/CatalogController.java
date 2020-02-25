@@ -1,4 +1,4 @@
-package com.fate.gmall.manager.controller;
+package com.fate.gmall.manage.controller;
 
 
 import com.alibaba.dubbo.config.annotation.Reference;
@@ -8,7 +8,6 @@ import com.fate.gmall.bean.PmsBaseCatalog3;
 import com.fate.gmall.service.CatalogService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 

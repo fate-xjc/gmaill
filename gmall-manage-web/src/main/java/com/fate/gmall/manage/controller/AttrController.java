@@ -1,4 +1,4 @@
-package com.fate.gmall.manager.controller;
+package com.fate.gmall.manage.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.fate.gmall.bean.PmsBaseAttrInfo;
