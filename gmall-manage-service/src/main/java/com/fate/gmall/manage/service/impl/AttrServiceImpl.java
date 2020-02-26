@@ -3,14 +3,17 @@ package com.fate.gmall.manage.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.fate.gmall.bean.PmsBaseAttrInfo;
 import com.fate.gmall.bean.PmsBaseAttrValue;
+import com.fate.gmall.bean.PmsBaseSaleAttr;
 import com.fate.gmall.manage.mapper.PmsBaseAttrInfoMapper;
 import com.fate.gmall.manage.mapper.PmsBaseAttrValueMapper;
+import com.fate.gmall.manage.mapper.PmsBaseSaleAttrMapper;
 import com.fate.gmall.service.AttrService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.util.StringUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,6 +24,8 @@ public class AttrServiceImpl implements AttrService {
 
     @Autowired
     PmsBaseAttrValueMapper pmsBaseAttrValueMapper;
+    @Autowired
+    PmsBaseSaleAttrMapper pmsBaseSaleAttrMapper;
 
 
 
@@ -29,6 +34,15 @@ public class AttrServiceImpl implements AttrService {
         PmsBaseAttrInfo pmsBaseAttrInfo=new PmsBaseAttrInfo();
         pmsBaseAttrInfo.setCatalog3Id(catalog3Id);
         List<PmsBaseAttrInfo> pmsBaseAttrInfos = pmsBaseAttrInfoMapper.select(pmsBaseAttrInfo);
+
+        for (PmsBaseAttrInfo baseAttrInfo : pmsBaseAttrInfos) {
+
+            List<PmsBaseAttrValue> pmsBaseAttrValues =new ArrayList<>();
+            PmsBaseAttrValue pmsBaseAttrValue= new PmsBaseAttrValue();
+            pmsBaseAttrValue.setAttrId(baseAttrInfo.getId());
+            pmsBaseAttrValues= pmsBaseAttrValueMapper.select(pmsBaseAttrValue);
+            baseAttrInfo.setAttrValueList(pmsBaseAttrValues);
+        }
         return pmsBaseAttrInfos;
     }
 
@@ -82,5 +96,10 @@ public class AttrServiceImpl implements AttrService {
         List<PmsBaseAttrValue> pmsBaseAttrValues = pmsBaseAttrValueMapper.select(pmsBaseAttrValue);
 
         return pmsBaseAttrValues;
+    }
+
+    @Override
+    public List<PmsBaseSaleAttr> baseSaleAttrList() {
+        return pmsBaseSaleAttrMapper.selectAll();
     }
 }

@@ -1,10 +1,7 @@
 package com.fate.gmall.manage.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.fate.gmall.bean.PmsProductImage;
-import com.fate.gmall.bean.PmsProductInfo;
-import com.fate.gmall.bean.PmsProductSaleAttr;
-import com.fate.gmall.bean.PmsProductSaleAttrValue;
+import com.fate.gmall.bean.*;
 import com.fate.gmall.manage.mapper.PmsProductImageMapper;
 import com.fate.gmall.manage.mapper.PmsProductInfoMapper;
 import com.fate.gmall.manage.mapper.PmsProductSaleAttrMapper;
@@ -99,5 +96,19 @@ public class SpuServiceImpl implements SpuService {
 
         return pmsProductImages;
 
+    }
+
+    @Override
+    public List<PmsProductSaleAttr> spuSaleAttrListCheckBySku(String productId,String skuId) {
+
+//        PmsProductSaleAttr pmsProductSaleAttr= new PmsProductSaleAttr();
+//        pmsProductSaleAttr.setId(productId);
+//        List<PmsProductSaleAttr> pmsProductSaleAttrs = pmsProductSaleAttrMapper.select(pmsProductSaleAttr);
+//        for (PmsProductSaleAttr productSaleAttr : pmsProductSaleAttrs) {
+//           String saleAttrId= productSaleAttr.getSaleAttrId();
+//
+//        }
+        List<PmsProductSaleAttr> pmsProductSaleAttrs = pmsProductSaleAttrMapper.selectSpuSaleAttrListCheckBySku(productId,skuId);
+        return pmsProductSaleAttrs;
     }
 }
