@@ -30,7 +30,7 @@ public class ItemController {
 
         map.put("skuInfo",pmsSkuInfo);
         //销售属性列表
-        List<PmsProductSaleAttr> pmsProductSaleAttrs = spuService.spuSaleAttrListCheckBySku(pmsSkuInfo.getProductId());
+        List<PmsProductSaleAttr> pmsProductSaleAttrs = spuService.spuSaleAttrListCheckBySku(pmsSkuInfo.getProductId(),skuId);
         map.put("spuSaleAttrListCheckBySku",pmsProductSaleAttrs);
 
         return "item";
